@@ -11,7 +11,14 @@ export default function Home() {
 
   
   return (
-    <>
+    <div className="w-[100%]
+                    h-[100%]
+                    flex 
+                    flex-col 
+                    justify-center 
+                    items-center
+                    gap-10
+                    ">
       <p className="text-5xl 
                     text-center
                     ">
@@ -30,6 +37,6 @@ export default function Home() {
               onClick={handleClick}>
               시작하기
               </button>
-    </>
+    </div>
   );
 }
