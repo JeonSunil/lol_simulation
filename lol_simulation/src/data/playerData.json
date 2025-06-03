@@ -190,6 +190,12 @@
           "nickname": "Clear",
           "price": 1
         },
+                {
+          "position": "top",
+          "name": "임성민",
+          "nickname": "Soboro",
+          "price": 1
+        },
         {
           "position": "jug",
           "name": "전어진",
@@ -200,6 +206,12 @@
           "position": "mid",
           "name": "이대광",
           "nickname": "VicLa",
+          "price": 1
+        },
+        {
+          "position": "mid",
+          "name": "유지명",
+          "nickname": "Daystar",
           "price": 1
         },
         {
