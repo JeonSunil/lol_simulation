@@ -1,0 +1,378 @@
+{
+  "lck": [
+    {
+      "team": "T1",
+      "player": [
+        {
+          "position": "top",
+          "name": "최현준",
+          "nickname": "Doran",
+          "price": 3
+        },
+        {
+          "position": "jug",
+          "name": "문현준",
+          "nickname": "Oner",
+          "price": 4
+        },
+        {
+          "position": "mid",
+          "name": "이상혁",
+          "nickname": "Faker",
+          "price": 3
+        },
+        {
+          "position": "ad",
+          "name": "이민형",
+          "nickname": "Gumayusi",
+          "price": 3
+        },
+        {
+          "position": "ad",
+          "name": "신금재",
+          "nickname": "Smash",
+          "price": 1
+        },
+        {
+          "position": "sup",
+          "name": "류민석",
+          "nickname": "Keria",
+          "price": 5
+        }
+      ]
+    },
+    {
+      "team": "Gen.G",
+      "player": [
+        {
+          "position": "top",
+          "name": "김기인",
+          "nickname": "Kiin",
+          "price": 5
+        },
+        {
+          "position": "jug",
+          "name": "김건부",
+          "nickname": "Canyon",
+          "price": 5
+        },
+        {
+          "position": "mid",
+          "name": "정지훈",
+          "nickname": "Chovy",
+          "price": 5
+        },
+        {
+          "position": "ad",
+          "name": "박재혁",
+          "nickname": "Ruler",
+          "price": 5
+        },
+        {
+          "position": "sup",
+          "name": "주민규",
+          "nickname": "Duro",
+          "price": 3
+        }
+      ]
+    },
+    {
+      "team": "Hanwha Life Esports",
+      "player": [
+        {
+          "position": "top",
+          "name": "최우제",
+          "nickname": "Zeus",
+          "price": 4
+        },
+        {
+          "position": "jug",
+          "name": "한왕호",
+          "nickname": "Peanut",
+          "price": 4
+        },
+        {
+          "position": "mid",
+          "name": "김건우",
+          "nickname": "Zeka",
+          "price": 4
+        },
+        {
+          "position": "ad",
+          "name": "박도현",
+          "nickname": "Viper",
+          "price": 4
+        },
+        {
+          "position": "sup",
+          "name": "유환중",
+          "nickname": "Delight",
+          "price": 4
+        }
+      ]
+    },
+    {
+      "team": "Dplus KIA",
+      "player": [
+        {
+          "position": "top",
+          "name": "전시우",
+          "nickname": "Siwoo",
+          "price": 2
+        },
+        {
+          "position": "jug",
+          "name": "최용혁",
+          "nickname": "Lucid",
+          "price": 3
+        },
+        {
+          "position": "mid",
+          "name": "허수",
+          "nickname": "ShowMaker",
+          "price": 3
+        },
+        {
+          "position": "ad",
+          "name": "김하람",
+          "nickname": "Aiming",
+          "price": 3
+        },
+        {
+          "position": "sup",
+          "name": "조건희",
+          "nickname": "BeryL",
+          "price": 2
+        }
+      ]
+    },
+    {
+      "team": "KT Rolster",
+      "player": [
+        {
+          "position": "top",
+          "name": "이승민",
+          "nickname": "PerfecT",
+          "price": 2
+        },
+        {
+          "position": "jug",
+          "name": "문우찬",
+          "nickname": "Cuzz",
+          "price": 3
+        },
+        {
+          "position": "mid",
+          "name": "곽보성",
+          "nickname": "Bdd",
+          "price": 4
+        },
+        {
+          "position": "ad",
+          "name": "서대길",
+          "nickname": "Deokdam",
+          "price": 2
+        },
+        {
+          "position": "sup",
+          "name": "정윤수",
+          "nickname": "Peter",
+          "price": 3
+        }
+      ]
+    },
+    {
+      "team": "BNK FEARX",
+      "player": [
+        {
+          "position": "top",
+          "name": "송현민",
+          "nickname": "Clear",
+          "price": 1
+        },
+        {
+          "position": "jug",
+          "name": "전어진",
+          "nickname": "Raptor",
+          "price": 2
+        },
+        {
+          "position": "mid",
+          "name": "이대광",
+          "nickname": "VicLa",
+          "price": 1
+        },
+        {
+          "position": "ad",
+          "name": "남대근",
+          "nickname": "Diable",
+          "price": 3
+        },
+        {
+          "position": "sup",
+          "name": "김형규",
+          "nickname": "Kellin",
+          "price": 3
+        }
+      ]
+    },
+    {
+      "team": "DN FREECS",
+      "player": [
+        {
+          "position": "top",
+          "name": "이동주",
+          "nickname": "DuDu",
+          "price": 1
+        },
+        {
+          "position": "jug",
+          "name": "홍창현",
+          "nickname": "Pyosik",
+          "price": 1
+        },
+        {
+          "position": "mid",
+          "name": "이태영",
+          "nickname": "BuLLDoG",
+          "price": 1
+        },
+        {
+          "position": "ad",
+          "name": "김민철",
+          "nickname": "Berserker",
+          "price": 2
+        },
+        {
+          "position": "sup",
+          "name": "김정민",
+          "nickname": "Life",
+          "price": 1
+        }
+      ]
+    },
+    {
+      "team": "Nongshim RedForce",
+      "player": [
+        {
+          "position": "top",
+          "name": "황성훈",
+          "nickname": "Kingen",
+          "price": 3
+        },
+        {
+          "position": "jug",
+          "name": "김민성",
+          "nickname": "GIDEON",
+          "price": 2
+        },
+        {
+          "position": "mid",
+          "name": "선현빈",
+          "nickname": "Calix",
+          "price": 1
+        },
+        {
+          "position": "ad",
+          "name": "정지우",
+          "nickname": "Jiwoo",
+          "price": 2
+        },
+        {
+          "position": "sup",
+          "name": "손시우",
+          "nickname": "Lehends",
+          "price": 4
+        }
+      ]
+    },
+    {
+      "team": "DRX",
+      "player": [
+        {
+          "position": "top",
+          "name": "이재원",
+          "nickname": "Rich",
+          "price": 2
+        },
+        {
+          "position": "jug",
+          "name": "배영준",
+          "nickname": "Sponge",
+          "price": 2
+        },
+        {
+          "position": "mid",
+          "name": "손우현",
+          "nickname": "Ucal",
+          "price": 2
+        },
+        {
+          "position": "ad",
+          "name": "박진성",
+          "nickname": "Teddy",
+          "price": 2
+        },
+        {
+          "position": "ad",
+          "name": "쩐바오민",
+          "nickname": "LazyFeel",
+          "price": 1
+        },
+        {
+          "position": "sup",
+          "name": "문관빈",
+          "nickname": "Andil",
+          "price": 1
+        }
+      ]
+    },
+    {
+      "team": "OKSavingsBank BRION",
+      "player": [
+        {
+          "position": "top",
+          "name": "박루한",
+          "nickname": "Morgan",
+          "price": 2
+        },
+        {
+          "position": "jug",
+          "name": "함유진",
+          "nickname": "HamBak",
+          "price": 1
+        },
+        {
+          "position": "jug",
+          "name": "김동범",
+          "nickname": "Croco",
+          "price": 2
+        },
+        {
+          "position": "mid",
+          "name": "이주현",
+          "nickname": "Clozer",
+          "price": 2
+        },
+        {
+          "position": "ad",
+          "name": "변정현",
+          "nickname": "Hype",
+          "price": 2
+        },
+        {
+          "position": "ad",
+          "name": "송선규",
+          "nickname": "Bull",
+          "price": 1
+        },
+        {
+          "position": "sup",
+          "name": "오동규",
+          "nickname": "Pollu",
+          "price": 1
+        }
+      ]
+    }
+  ]
+}
