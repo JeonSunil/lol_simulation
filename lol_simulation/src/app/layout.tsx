@@ -10,15 +10,25 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
   return (
     <html lang="en">
       <body className="
-                    w-[100vw] 
-                    h-[100vh] 
+                    w-full
+                    h-screen 
+                    overflow-y-auto
                     flex 
                     justify-center 
                     items-center
                     flex-col
                     gap-[5vh]
+                    bg-gray-400
+                    relative
                     ">
-        {children}
+          <div className="
+                      w-[60vw]
+                      h-[80vh] 
+                      overflow-y-scroll
+                      bg-white
+                      ">
+            {children}
+          </div>
       </body>
     </html>
   );
