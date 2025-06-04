@@ -18,7 +18,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
                     items-center
                     flex-col
                     gap-[5vh]
-                    bg-gray-400
+                    bg-gray-200
                     relative
                     ">
           <div className="
