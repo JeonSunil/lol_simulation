@@ -11,6 +11,7 @@ interface Player {
   name: string;
   nickname: string;
   price: number;
+  img?: string;
 }
 
 // * json데이터의 형식에 맞추어 인터페이스를 작성 아래의 player[] 배열은 위의 인터페이스 내용이 들어가는 배열이 될 것.
@@ -28,7 +29,9 @@ export default function SelectPage() {
   const router = useRouter();
 
   // * 아래의 fixed 된 박스를 보이고, 안보이고를 결정 하는 상탯값.
-  const [view, setview] = useState(true)
+  const [view, setview] = useState(true);
+
+  const [viewByTeam, setViewByTeam] = useState(false);
   // * 
   const [selectedPlayers, setSelectedPlayers] = useState<{ [key: string]: Player | null }>({
     top: null,
@@ -45,12 +48,7 @@ export default function SelectPage() {
   );
   const remainingBudget = totalBudget - usedBudget;
 
-  // const handleSelect = (player: Player) => {
-  //   setSelectedPlayers((prev) => ({
-  //     ...prev,
-  //     [player.position]: player,
-  //   }));
-  // };
+
 const handleSelect = (player: Player) => {
   const currentPlayer = selectedPlayers[player.position];
   const currentBudget = player.price - (currentPlayer?.price || 0); // 이미 선택된 선수와 교체 시 차액
@@ -96,6 +94,13 @@ const handleSelect = (player: Player) => {
       </button>
 
       <button
+        onClick={() => setViewByTeam((prev) => !prev)}
+        className="fixed right-4 top-4 bg-blue-500 text-white px-4 py-2 rounded shadow-md z-50 cursor-pointer hover:bg-blue-400"
+      >
+        {viewByTeam ? "가격별 보기" : "팀별 보기"}
+      </button>
+
+      <button
         onClick={() => setSelectedPlayers({
           top: null,
           jug: null,
@@ -121,16 +126,24 @@ const handleSelect = (player: Player) => {
       {/* 선택된 선수 리스트 */}
       <div className="grid grid-cols-5 gap-4 mb-4 mt-3 text-center">
         {Object.entries(selectedPlayers).map(([position, player]) => (
-          <div key={position} className="border p-4 rounded-lg min-h-[80px] bg-gray-100">
-            <div className="text-sm font-semibold uppercase">{position}</div>
-            <div className="text-lg cursor-pointer hover:text-blue-500" 
+          <div key={position} className="h-[130px] border p-4 rounded-lg min-h-[80px] bg-gray-100 hover:bg-gray-200 cursor-pointer"
             onClick={() => {
               setSelectedPlayers((prev) => ({
-                                          ...prev,
-                                        [position]: null, // 해당 포지션만 null로 초기화
-                                        }));
-                                      }}>{player ? player.nickname : "-"}</div>
-          </div>
+                                      ...prev,
+                                    [position]: null, // 해당 포지션만 null로 초기화
+                                    }));
+                                  }}>
+            <div className="text-sm font-semibold uppercase">{position}</div>
+
+            <div className="flex flex-col items-center">
+              {player?.img ? 
+              <img src={player?.img} alt={player?.nickname} className="w-14 h-12 border border-black rounded-[10%] object-contain" /> 
+              : 
+              <div className="w-14 h-12 border border-black rounded-[10%]"></div>
+              } 
+              {player ? player.nickname : "-"}
+              </div>
+            </div>
         ))}
       </div>
 
@@ -141,6 +154,7 @@ const handleSelect = (player: Player) => {
     )}
       {/* 테이블 형태 출력 */}
       <div className="overflow-x-auto">
+      {!viewByTeam ? (
         <table className="
                           table-auto 
                           border-collapse 
@@ -161,16 +175,17 @@ const handleSelect = (player: Player) => {
           <tbody>
             {priceLevels.map((price) => (
               <tr key={price}>
-                <td className="border px-4 py-2 font-bold text-center bg-gray-50">{price}$</td>
+                <td className="border px-4 py-2 font-bold bg-gray-50">{price}$</td>
                 {POSITIONS.map((pos) => (
                   <td key={pos} className="border px-4 py-2 align-top">
                     {(grouped[price]?.[pos] || []).map((player) => (
                       <div
                         key={player.nickname}
                         onClick={() => handleSelect(player)}
-                        className="cursor-pointer hover:text-blue-500"
+                        className="cursor-pointer flex flex-col p-[10%] items-center hover:bg-gray-200 rounded-[10%]"
                       >
-                        {player.nickname}
+                      <img src={player.img} alt={player.nickname} className="w-14 h-12 border border-black rounded-[10%] object-contain" />
+                      <div>{player.nickname}</div>
                       </div>
                     ))}
                   </td>
@@ -179,6 +194,52 @@ const handleSelect = (player: Player) => {
             ))}
           </tbody>
         </table>
+        ) : (
+  // 팀별 보기 (새로 작성)
+        <div className="space-y-12 mb-20">
+          {lckData.lck.map((team: Team) => {
+            // 각 포지션별로 선수 배열 만들기
+            const positionMap: { [key: string]: Player[] } = {};
+            POSITIONS.forEach((pos) => {
+              positionMap[pos] = team.player.filter((p) => p.position === pos);
+            });
+          
+            return (
+              <div key={team.team} className="border p-4 rounded bg-gray-50 shadow">
+                <h2 className="text-2xl font-bold mb-6">{team.team}</h2>
+            
+                {/* 포지션 헤더 */}
+                <div className="grid grid-cols-5 gap-4 mb-2 text-center">
+                  {POSITIONS.map((pos) => (
+                    <div key={pos} className="font-semibold capitalize text-lg">
+                      {pos}
+                    </div>
+                  ))}
+                </div>
+                
+                {/* 포지션별 선수들을 한 줄씩 배치 */}
+                <div className="grid grid-cols-5 gap-4">
+                  {POSITIONS.map((pos) => (
+                    <div key={pos} className="space-y-2">
+                      {positionMap[pos].map((player) => (
+                        <div
+                          key={player.nickname}
+                          className="border p-2 rounded text-center bg-white hover:bg-gray-100 cursor-pointer"
+                          onClick={() => handleSelect(player)}
+                        >
+                        <img src={player.img} alt={player.nickname} className="w-14 h-12 border border-black rounded-[10%] mx-auto mb-1 object-contain" />
+                        <div className="text-base font-medium">{player.nickname}</div>
+                        <div className="text-sm text-gray-500">${player.price}</div>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        )}
       </div>
     </div>
   );
