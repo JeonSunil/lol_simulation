@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import "./globals.css";
+import { Providers } from "./components/Provider";
 
 export const metadata: Metadata = {
   title: "lck선수 15달러 챌린지",
@@ -21,14 +22,17 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
                     bg-gray-200
                     relative
                     ">
+        <Providers>
           <div className="
-                      w-[60vw]
+                      md:w-[80vw]
+                      w-100vw
                       h-[80vh] 
                       overflow-y-scroll
                       bg-white
                       ">
             {children}
           </div>
+          </Providers>
       </body>
     </html>
   );
