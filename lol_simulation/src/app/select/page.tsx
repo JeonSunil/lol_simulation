@@ -23,6 +23,7 @@ export default function SelectPage() {
 
   // * 아래의 fixed 된 박스를 보이고, 안보이고를 결정 하는 상탯값.
   const [view, setview] = useState(true);
+  const [message, setMessage] = useState('');
 
   const [viewByTeam, setViewByTeam] = useState(false);
   // * 
@@ -85,9 +86,10 @@ const handleSelect = (player: PlayerInterface) => {
       } else {
         // 선수가 선택되지 않았으면 해당 포지션의 닉네임을 빈 문자열로 초기화합니다.
         disPatch(setPlayer({ result: pos, nickName: '' }));
+        setMessage('');
       } 
       if(position.every(pos => selectedPlayers[pos] !== null)) {
-        alert('모든 선수를 선택했다.')
+        setMessage('모든 선수를 선택하셨습니다.')
       }
       console.log(totalPlayer);
 
@@ -100,14 +102,14 @@ const handleSelect = (player: PlayerInterface) => {
 
       <button
         onClick={() => {router.push('/')}}
-        className="fixed left-4 top-4 bg-blue-500 text-white px-4 py-2 rounded shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        className="fixed left-4 top-4 bg-blue-500 text-white px-4 py-2 rounded-[10px] shadow-md z-50 cursor-pointer hover:bg-blue-400"
       >
         뒤로가기
       </button>
 
       <button
         onClick={() => setViewByTeam((prev) => !prev)}
-        className="fixed right-4 top-4 bg-blue-500 text-white px-4 py-2 rounded shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        className="fixed right-4 top-4 bg-blue-500 text-white px-4 py-2 rounded-[10px] shadow-md z-50 cursor-pointer hover:bg-blue-400"
       >
         {viewByTeam ? "가격별 보기" : "팀별 보기"}
       </button>
@@ -120,14 +122,24 @@ const handleSelect = (player: PlayerInterface) => {
           ad: null,
           sup: null,
         })}
-        className="fixed left-4 bottom-45 md:bottom-55 bg-blue-500 text-white px-4 py-2 rounded shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        className=
+        {view ?
+          "fixed left-4 bottom-45 md:bottom-55 bg-blue-500 text-white px-4 py-2 rounded-[10px] shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        :
+          "fixed left-4 bottom-5 md:bottom-5 bg-blue-500 text-white px-4 py-2 rounded-[10px] shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        }
       >
       초기화 버튼
       </button>
 
       <button
         onClick={() => setview((prev) => !prev)}
-        className="fixed right-4 bottom-45 md:bottom-55 bg-blue-500 text-white px-4 py-2 rounded shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        className=
+        {view ?
+        "fixed right-4 bottom-45 md:bottom-55 bg-blue-500 text-white px-4 py-2 rounded-[10px] shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        :
+        "fixed right-4 bottom-5 md:bottom-5 bg-blue-500 text-white px-4 py-2 rounded-[10px] shadow-md z-50 cursor-pointer hover:bg-blue-400"
+        }
       >
         {view ? "선수 선택 숨기기" : "선수 선택 보기"}
       </button>
@@ -159,9 +171,19 @@ const handleSelect = (player: PlayerInterface) => {
         ))}
       </div>
 
+    {!message ?  
       <div className="text-center text-lg font-semibold mb-3">
         남은 예산: ${remainingBudget}
       </div>
+    : 
+    <>
+      <div className="text-center text-lg font-semibold mb-3">
+        {message}
+      </div>
+      <button className="absolute border py-1 px-6 bottom-0 right-0 md:bottom-3 md:right-3 rounded-[10px] text-white bg-blue-500 hover:bg-blue-400 cursor-pointer">확정</button>
+    </>
+    }
+
     </div>
     )}
 
@@ -201,6 +223,7 @@ const handleSelect = (player: PlayerInterface) => {
                       <img src={player.img} alt={player.nickname} className="w-14 h-12 md:w-20 md:h-18 md:px-2 border border-black rounded-[10%] object-contain" />
 
                         <div className="text-[1vmax] mt-2 md:text-[16px]">{player.nickname}</div>
+                        <div className="text-[1vmax] mt-2 md:text-[16px]">{player.name}</div>
                         <img src={lckData.lck.find((team) =>team.player.some((p) => p.nickname === player.nickname))?.img || ""} alt={lckData.lck.find((team) =>team.player.some((p) => p.nickname === player.nickname))?.team || ""} className="w-10 h-10" />
                       </div>
                     ))}
@@ -248,6 +271,7 @@ const handleSelect = (player: PlayerInterface) => {
                         >
                         <img src={player.img} alt={player.nickname} className="w-14 h-12 md:w-20 md:h-18 border border-black rounded-[10px] mx-auto mb-1 object-contain" />
                         <div className="text-[1vmax] font-medium flex justify-center items-center">{player.nickname}</div>
+                        <div className="text-[1vmax] font-medium flex justify-center items-center">{player.name}</div>
                         <div className="text-sm text-gray-500 flex justify-center items-center">${player.price}</div>
                         </div>
                       ))}
