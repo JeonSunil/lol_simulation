@@ -25,7 +25,7 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
         <Providers>
           <div className="
                       md:w-[80vw]
-                      w-100vw
+                      w-[90vw]
                       h-[80vh] 
                       overflow-y-scroll
                       bg-white
