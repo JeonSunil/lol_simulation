@@ -182,7 +182,7 @@ const handleSelect = (player: PlayerInterface) => {
       <div className="text-center text-lg font-semibold mb-3">
         {message}
       </div>
-      <button className="absolute border py-1 px-6 bottom-0 right-0 md:bottom-3 md:right-3 rounded-[10px] text-white bg-blue-500 hover:bg-blue-400 cursor-pointer shadow-md"
+      <button className="absolute border py-1 px-6 bottom-2 right-0 md:bottom-3 md:right-3 rounded-[10px] text-white bg-blue-500 hover:bg-blue-400 cursor-pointer shadow-md"
       onClick={() => {router.push('/result')}}
       >확정</button>
     </>
