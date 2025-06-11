@@ -60,10 +60,12 @@ export default function ResultPage() {
   }
 
   useEffect(() => {
-  const randomTeam = getRandomPlayer();
-  console.log(randomTeam);
-  setRandomPlayer(randomTeam);
-  }, []);
+    if (players.length === 5 && players.every(p => p !== '')) {
+      const randomTeam = getRandomPlayer(players);
+      console.log(randomTeam);
+      setRandomPlayer(randomTeam);
+    }
+  }, [players]);
 
   useEffect(() => {
   console.log(randomPlayer);
@@ -73,8 +75,8 @@ export default function ResultPage() {
 
 
   return (
-    <div>
-    <button onClick={() => {deleteSession(); router.push('/')}}>처음으로</button>
+    <div className="flex flex-col justify-around h-[80vh]">
+    <button onClick={() => {deleteSession(); router.push('/')}} className="absolute">처음으로</button>
     <div className="flex justify-around items-center w-[100%] h-[100%]">
       <div className="flex flex-col md:flex-row">
       {players.map((item, i) => {
@@ -83,12 +85,27 @@ export default function ResultPage() {
                         .find((p) => p.nickname === item);
 
               return <div key={position[i]} className="flex flex-col justify-center items-center">
-                        <img src={match?.img} alt={item} className="w-20 h-25 md:w-30 md:h-37"/>
+                        <img src={match?.img} alt={item} className="w-20 h-25 md:w-30 md:h-37 object-cover"/>
                         <div>{item}</div>
                     </div>
         
           })
         }
+        </div>
+    </div>
+        <div className="flex justify-around items-center w-[100%] h-[100%]">
+          <div className="flex flex-col md:flex-row">
+            {position.map((pos) => {
+              const item = randomPlayer[pos];
+              if (!item) return null;
+            
+              return (
+                <div key={pos} className="flex flex-col justify-center items-center">
+                  <img src={item.img} alt={item.nickname} className="w-20 h-25 md:w-30 md:h-37 object-cover" />
+                  <div>{item.nickname}</div>
+                </div>
+              );
+            })}
         </div>
     </div>
     </div>

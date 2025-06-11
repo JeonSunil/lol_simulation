@@ -224,7 +224,7 @@ const handleSelect = (player: PlayerInterface) => {
                         onClick={() => handleSelect(player)}
                         className="cursor-pointer flex flex-col p-[10%] items-center hover:bg-gray-200 rounded-[10px] border border-gray-500 my-5"
                       >
-                      <img src={player.img} alt={player.nickname} className="w-14 h-12 md:w-20 md:h-18 md:px-2 border border-black rounded-[10%] object-contain" />
+                      <img src={player.img} alt={player.nickname} className="w-14 h-12 md:w-20 md:h-18 md:px-2 border border-black rounded-[10%] object-cover" />
 
                         <div className="text-[1vmax] mt-2 md:text-[16px]">{player.nickname}</div>
                         <div className="text-[1vmax] mt-2 md:text-[16px]">{player.name}</div>
