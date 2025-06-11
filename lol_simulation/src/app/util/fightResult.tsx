@@ -1,5 +1,6 @@
 import lckData from "@/data/playerData.json";
 import { PlayerInterface } from "../interface/PlayerInterface";
+import { draw_probability, win_probability } from "@/valueData/valueData";
 
 
 export function fightResult(players: string[], randomPlayer: { [key: string]: PlayerInterface | null }) {
@@ -20,11 +21,11 @@ export function fightResult(players: string[], randomPlayer: { [key: string]: Pl
     const rand = Math.random(); // 0 ~ 1 사이 무작위 수
 
     if (playerTeamPrice > randomTeamPrice) {
-      winner = rand < 0.8 ? "player" : "random";
+      winner = rand < win_probability ? "player" : "random";
     } else if (playerTeamPrice < randomTeamPrice) {
-      winner = rand < 0.8 ? "random" : "player";
+      winner = rand < win_probability ? "random" : "player";
     } else {
-      winner = rand < 0.5 ? "player" : "random";
+      winner = rand < draw_probability ? "player" : "random";
     }
 
     return winner;

@@ -1,8 +1,9 @@
 import lckData from "@/data/playerData.json";
 import { PlayerInterface } from "../interface/PlayerInterface";
+import { budget } from "@/valueData/valueData";
 
 const POSITIONS = ["top", "jug", "mid", "ad", "sup"];
-const MAX_TOTAL_PRICE = 15;
+const MAX_TOTAL_PRICE = budget;
 
 export default function getRandomPlayer(excludeNicknames: string[] = []) {
   console.log(excludeNicknames);
