@@ -83,10 +83,12 @@ const handleSelect = (player: PlayerInterface) => {
       if (player) {
         // 선수가 선택되었으면 해당 포지션과 닉네임을 Redux 스토어에 저장합니다.
         disPatch(setPlayer({ result: pos, nickName: player.nickname }));
+        sessionStorage.setItem(pos, player.nickname);
       } else {
         // 선수가 선택되지 않았으면 해당 포지션의 닉네임을 빈 문자열로 초기화합니다.
         disPatch(setPlayer({ result: pos, nickName: '' }));
         setMessage('');
+        sessionStorage.removeItem(pos);
       } 
       if(position.every(pos => selectedPlayers[pos] !== null)) {
         setMessage('모든 선수를 선택하셨습니다.')
@@ -180,7 +182,9 @@ const handleSelect = (player: PlayerInterface) => {
       <div className="text-center text-lg font-semibold mb-3">
         {message}
       </div>
-      <button className="absolute border py-1 px-6 bottom-0 right-0 md:bottom-3 md:right-3 rounded-[10px] text-white bg-blue-500 hover:bg-blue-400 cursor-pointer">확정</button>
+      <button className="absolute border py-1 px-6 bottom-0 right-0 md:bottom-3 md:right-3 rounded-[10px] text-white bg-blue-500 hover:bg-blue-400 cursor-pointer shadow-md"
+      onClick={() => {router.push('/result')}}
+      >확정</button>
     </>
     }
 
