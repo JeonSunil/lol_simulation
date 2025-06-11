@@ -5,6 +5,9 @@ import { Providers } from "./components/Provider";
 export const metadata: Metadata = {
   title: "lck선수 15달러 챌린지",
   description: "lck선수 15달러 챌린지",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({children,}: Readonly<{children: React.ReactNode;}>) {
