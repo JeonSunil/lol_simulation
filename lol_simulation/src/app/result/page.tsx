@@ -1,7 +1,5 @@
 'use client'
 
-import { RootState } from "@/store";
-import { setPlayer } from "@/store/slice/playerSlice";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,8 +12,7 @@ import { fightResult } from "../util/fightResult";
 const position = ["top", "jug", "mid", "ad", "sup"];
 
 export default function ResultPage() {
-  // const disPatch = useDispatch();
-  // const totalPlayer = useSelector((state: RootState) =>  state.player)
+
   const [players, setPlayers] = useState<string[]>([]);
   const [randomPlayer, setRandomPlayer] = useState<{ [key: string]: PlayerInterface | null }>({
     top: null,

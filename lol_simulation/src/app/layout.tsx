@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import "./globals.css";
-import { Providers } from "./components/Provider";
 
 export const metadata: Metadata = {
   title: "lck선수 15달러 챌린지",
@@ -25,7 +24,6 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
                     bg-gray-200
                     relative
                     ">
-        <Providers>
           <div className="
                       md:w-[80vw]
                       w-[90vw]
@@ -36,7 +34,6 @@ export default function RootLayout({children,}: Readonly<{children: React.ReactN
                       ">
             {children}
           </div>
-          </Providers>
       </body>
     </html>
   );

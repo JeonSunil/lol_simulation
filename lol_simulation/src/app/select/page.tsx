@@ -7,8 +7,6 @@ import { useRouter } from "next/navigation";
 import { PlayerInterface, TeamInterface } from "../interface/PlayerInterface";
 import { budget } from "@/valueData/valueData";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/store";
-import { setPlayer } from "@/store/slice/playerSlice";
 
 
 const position = ["top", "jug", "mid", "ad", "sup"];
@@ -16,8 +14,6 @@ const position = ["top", "jug", "mid", "ad", "sup"];
 
 // * 셀렉트 페이지 작성 시작
 export default function SelectPage() {
-  const disPatch = useDispatch();
-  const totalPlayer = useSelector((state: RootState) =>  state.player)
 
   const router = useRouter();
 
@@ -82,21 +78,18 @@ const handleSelect = (player: PlayerInterface) => {
       const player = selectedPlayers[pos];
       if (player) {
         // 선수가 선택되었으면 해당 포지션과 닉네임을 Redux 스토어에 저장합니다.
-        disPatch(setPlayer({ result: pos, nickName: player.nickname }));
         sessionStorage.setItem(pos, player.nickname);
       } else {
         // 선수가 선택되지 않았으면 해당 포지션의 닉네임을 빈 문자열로 초기화합니다.
-        disPatch(setPlayer({ result: pos, nickName: '' }));
         setMessage('');
         sessionStorage.removeItem(pos);
       } 
       if(position.every(pos => selectedPlayers[pos] !== null)) {
         setMessage('모든 선수를 선택하셨습니다.')
       }
-      console.log(totalPlayer);
 
       });
-    }, [selectedPlayers, totalPlayer]);
+    }, [selectedPlayers]);
 
   return (
     <div className="p-8">
