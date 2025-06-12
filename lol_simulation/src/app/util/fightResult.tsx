@@ -14,11 +14,11 @@ export function fightResult(players: string[], randomPlayer: { [key: string]: Pl
       .filter(p => p !== null)
       .reduce((sum, p) => sum + (p!.price || 0), 0);
 
-    console.log("👤 사용자 팀 가격:", playerTeamPrice);
-    console.log("🎲 랜덤 팀 가격:", randomTeamPrice);
+    console.log("사용자 팀 가격:", playerTeamPrice);
+    console.log("랜덤 팀 가격:", randomTeamPrice);
 
     let winner = "";
-    const rand = Math.random(); // 0 ~ 1 사이 무작위 수
+    const rand = Math.random();
 
     if (playerTeamPrice > randomTeamPrice) {
       winner = rand < win_probability ? "player" : "random";

@@ -2,8 +2,8 @@ import lckData from "@/data/playerData.json";
 import { PlayerInterface } from "../interface/PlayerInterface";
 import { budget } from "@/valueData/valueData";
 
-const POSITIONS = ["top", "jug", "mid", "ad", "sup"];
-const MAX_TOTAL_PRICE = budget;
+const positions = ["top", "jug", "mid", "ad", "sup"];
+const maxTotalPrice = budget;
 
 export default function getRandomPlayer(excludeNicknames: string[] = []) {
   console.log(excludeNicknames);
@@ -41,7 +41,7 @@ export default function getRandomPlayer(excludeNicknames: string[] = []) {
       const usedNicknames = new Set<string>();
       let totalPrice = 0;
 
-      for (const pos of POSITIONS) {
+      for (const pos of positions) {
         const candidates = pools[pos].filter(p => !usedNicknames.has(p.nickname));
         if (candidates.length === 0) break;
 
@@ -51,7 +51,7 @@ export default function getRandomPlayer(excludeNicknames: string[] = []) {
         usedNicknames.add(randomPlayer.nickname);
       }
 
-      if (Object.keys(tempResult).length === 5 && totalPrice <= MAX_TOTAL_PRICE) {
+      if (Object.keys(tempResult).length === 5 && totalPrice <= maxTotalPrice) {
         result = tempResult;
         break;
       }
